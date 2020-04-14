@@ -38,5 +38,5 @@ def estimator(data):
 
     estimate = {'impact': impact, 'severeImpact': severeImpact}
     data = {'data': data_dict, 'estimate': estimate}
-    
+
     return (data)
