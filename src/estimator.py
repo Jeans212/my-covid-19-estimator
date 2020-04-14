@@ -1,6 +1,6 @@
 import json
 def estimator(data):
-    data_dict = json.loads(data)
+    data_dict = json.load(data)
 		
     reportedCases = data_dict['reportedCases']
     periodType = data_dict['periodType']
