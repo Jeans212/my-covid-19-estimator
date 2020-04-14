@@ -1,13 +1,13 @@
 import json
 def estimator(data):
-    data_dict = json.loads(data)
+    #data_dict = json.loads(data)
 		
-    reportedCases = data_dict['reportedCases']
-    periodType = data_dict['periodType']
-    timeToElapse = data_dict['timeToElapse']
-    totalHospitalBeds = data_dict['totalHospitalBeds']
-    avgDailyIncomeInUSD = data_dict['region']['avgDailyIncomeInUSD']
-    avgDailyIncomePopulation = data_dict['region']['avgDailyIncomePopulation']
+    reportedCases = data['reportedCases']
+    periodType = data['periodType']
+    timeToElapse = data['timeToElapse']
+    totalHospitalBeds = data['totalHospitalBeds']
+    avgDailyIncomeInUSD = data['region']['avgDailyIncomeInUSD']
+    avgDailyIncomePopulation = data['region']['avgDailyIncomePopulation']
     factor = 1
     days = 1
 	
@@ -37,7 +37,7 @@ def estimator(data):
 		    'casesForVentilatorsByRequestedTime': int(0.02 * (reportedCases * 50 * (2 ** factor))),
 		    'dollarsInFlight': round(avgDailyIncomeInUSD * avgDailyIncomePopulation * days * (reportedCases * 50 * (2 ** factor)), 2)}
 
-    estimate = {'impact': impact, 'severeImpact': severeImpact}
-    data = {'data': data_dict, 'estimate': estimate}
+    #estimate = {'impact': impact, 'severeImpact': severeImpact}
+    output = {'data': data, 'impact': impact, 'severeImpact': severeImpact}
 
-    return (data)
+    return (output)
