@@ -1,5 +1,3 @@
-import json
-
 def estimator(data):
     data_dict = json.loads(data)
     reportedCases = data_dict['reportedCases']
@@ -41,3 +39,4 @@ def estimator(data):
     data = {'data': data_dict, 'estimate': estimate}
 
     return (data)
+
