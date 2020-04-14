@@ -27,7 +27,7 @@ def estimator(data):
 	      'hospitalBedsByRequestedTime': int((0.35 * totalHospitalBeds) - (0.15 * (reportedCases * 10 * (2 ** factor)))),
 	      'casesForICUByRequestedTime': int(0.05 * (reportedCases * 10 * (2 ** factor))),
 	      'casesForVentilatorsByRequestedTime': int(0.02 * (reportedCases * 10 * (2 ** factor))),
-	      'dollarsInFlight': round(avgDailyIncomeInUSD * avgDailyIncomePopulation * days * (reportedCases * 10 * (2 ** factor)), 2) }
+	      'dollarsInFlight': int(avgDailyIncomeInUSD * avgDailyIncomePopulation * days * (reportedCases * 10 * (2 ** factor)) / days) }
 
     severeImpact = {'currentlyInfected': reportedCases * 50,
 		    'infectionsByRequestedTime': (reportedCases * 50 * (2 ** factor)), 
@@ -35,7 +35,7 @@ def estimator(data):
 		    'hospitalBedsByRequestedTime': int((0.35 * totalHospitalBeds) - (0.15 * (reportedCases * 50 * (2 ** factor)))), 
 		    'casesForICUByRequestedTime': int(0.05 * (reportedCases * 50 * (2 ** factor))),
 		    'casesForVentilatorsByRequestedTime': int(0.02 * (reportedCases * 50 * (2 ** factor))),
-		    'dollarsInFlight': round(avgDailyIncomeInUSD * avgDailyIncomePopulation * days * (reportedCases * 50 * (2 ** factor)), 2)}
+		    'dollarsInFlight': int(avgDailyIncomeInUSD * avgDailyIncomePopulation * (reportedCases * 50 * (2 ** factor)) / days)}
 
     #estimate = {'impact': impact, 'severeImpact': severeImpact}
     output = {'data': data, 'impact': impact, 'severeImpact': severeImpact}
