@@ -27,7 +27,7 @@ def estimator(data):
 	      'hospitalBedsByRequestedTime': int((0.35 * totalHospitalBeds) - (0.15 * (reportedCases * 10 * (2 ** factor)))),
 	      'casesForICUByRequestedTime': int(0.05 * (reportedCases * 10 * (2 ** factor))),
 	      'casesForVentilatorsByRequestedTime': int(0.02 * (reportedCases * 10 * (2 ** factor))),
-	      'dollarsInFlight': (avgDailyIncomeInUSD * avgDailyIncomePopulation * days * (reportedCases * 10 * (2 ** factor))) // days }
+	      'dollarsInFlight': (avgDailyIncomeInUSD * avgDailyIncomePopulation * (reportedCases * 10 * (2 ** factor))) // days }
 
     severeImpact = {'currentlyInfected': reportedCases * 50,
 		    'infectionsByRequestedTime': (reportedCases * 50 * (2 ** factor)), 
