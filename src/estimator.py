@@ -1,3 +1,4 @@
+import json
 def estimator(data):
     data_dict = json.loads(data)
 		
